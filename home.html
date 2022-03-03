@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE-edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>BMI Calculator</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="calculator">
+                <h2>BMI Calculator</h2><br>
+                <p>Enter your height</p>
+                <input type="number" id="height" placeholder="height">
+                <p>Enter your weight</p>
+                <input type="number" id="weight" placeholder="weight">
+                <p id="result"></p>
+                <button id="btn" onclick="bmi()" type="submit">Calculate</button>
+                <br><p id="note">Note: "Please enter height in cm and weight in kg"</p>
+            </div>
+            <div class="chart">
+                <table id="table">
+                    <tr>
+                        <th>Wright Categories</th>
+                        <th>BMI(kg/m2)</th>
+                    </tr>
+                    <tr>
+                        <td>UnderWeight</td>
+                        <td><18.5</td>
+                    </tr>
+                    <tr>
+                        <td>Healthy Weight</td>
+                        <td>18.5-24.9</td>
+                    </tr>
+                    <tr>
+                        <td>Overweight</td>
+                        <td>25-29.9</td>
+                    </tr>
+                    <tr>
+                        <td>Obese</td>
+                        <td>30-34.9</td>
+                    </tr>
+                    <tr>
+                        <td>Severely Obese</td>
+                        <td>35-39.9</td>
+                    </tr>
+                    <tr>
+                        <td>Morbidly Obese</td>
+                        <td>>=40</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <script>
+            function bmi()
+            {
+                var h = document.getElementById('height').value;
+                var w = document.getElementById('weight').value;
+                var total = w / (h / 100 * h / 100);
+                var bmi = total.toFixed(2);
+                document.getElementById('result').innerHTML = "Your BMI is "+ bmi
+            }
+        </script>
+    </body>
+</html>
